@@ -1,0 +1,28 @@
+h1 {
+	color: rgb(255, 157, 0);
+	font-family: "Helvetica";
+    background-color: deepskyblue;
+}
+
+h2 {
+	color: rgb(0, 115, 255);
+	font-family: "Helvetica";
+}
+
+h3 {
+	color: rgb(8, 227, 41);
+	font-family: "Helvetica";
+}
+
+.captionStyle {
+    font-style: italic;
+    margin-bottom: 1cm;
+    text-align: center;
+}
+
+.images {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}

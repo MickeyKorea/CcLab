@@ -1,0 +1,66 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+p{
+    justify-content: center;
+    font-size: large;
+}
+
+p1{
+    margin-top: -10px;
+    justify-content: center;
+    font-size: small;
+}
+
+.p, .p1, .header, .content, .footer {
+    display: flex;
+}
+
+.header{
+    margin: 200;
+    width: 100%;
+    height: 100px;
+    background-color: beige;
+    justify-content: center;
+    align-items: center;
+}
+
+.content{
+    width: 100%;
+    height: 85%;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.content-box{
+    background-color: #EEE;
+    width: 300px;
+    height: 300px;
+    margin: 50px;
+}
+
+.footer {
+    /*background-color: beige;*/
+    margin-top: 70px;
+    width: 100%;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+.spotify{
+    height: 97px;
+    width: auto;
+}
+
+.applemusic{
+    height: 100px;
+    width: auto;
+}
