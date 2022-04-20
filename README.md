@@ -1,5 +1,5 @@
 # CcLab22
- Repository for CC Lab. Access it on [GitHub Pages](https://mickeykorea.github.io/CcLab22/).
+ Repository for CC Lab. Access it on my [GitHub Pages](https://mickeykorea.github.io/CcLab22/).
 
  ---
 
