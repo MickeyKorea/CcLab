@@ -17,6 +17,8 @@ canvas {
   justify-content:space-between;
   font-size: 22.4px;
   user-select: none;
+  position: sticky;
+  top: 0;
 }
 
 .menutext{
