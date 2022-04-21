@@ -88,6 +88,10 @@ canvas {
   /* https://editor.p5js.org/MOQN/sketches/l5OUgtzD_ */
 }
 
+.no-cursor{
+  cursor: none;
+}
+
 hr.line {
   border-top: 3px dotted #bbb;
   border-bottom: none;
