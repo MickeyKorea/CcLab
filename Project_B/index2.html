@@ -31,6 +31,25 @@
         </div>
     </div>
 
+    <audio id="testSong">
+        <source src="assets/song.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        let testSong = document.getElementById("testSong");
+        let icon = document.getElementById("icon");
+
+        icon.onclick = function () {
+            if (testSong.paused) {
+                testSong.play();
+                icon.src = "assets/pause.png";
+            } else {
+                testSong.pause();
+                icon.src = "assets/play.png"
+            }
+        }
+    </script>
+
     <!-- <img src="assets/records.png" class="recordsImg"> -->
 
 </body>

@@ -226,6 +226,13 @@ span.text1 {
   align-items: center;
 }
 
+.control p{
+  font-size: 20px;
+  color: #fff;
+  font-weight: 400;
+  margin-right: 15px;
+}
+
 #icon{
   width: 80px;
   cursor: pointer;
