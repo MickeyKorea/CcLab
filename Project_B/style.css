@@ -1,0 +1,220 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+}
+
+canvas {
+  display: block;
+}
+
+.menubar {
+  background-color: rgba(0, 0, 0, 0.8);
+  height: 44px;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 22.4px;
+  user-select: none;
+  position: sticky;
+  top: 0;
+}
+
+.menutext {
+  height: 1px;
+  color: rgba(255, 255, 255, 0.796);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: opacity .5s;
+}
+
+.menutext:hover {
+  opacity: .7;
+}
+
+.back-main {
+  color: rgba(255, 255, 255, 0.796);
+  text-decoration: none;
+}
+
+.background-image {
+  width: 100%;
+  margin-top: px;
+  margin-bottom: 0;
+  align-items: center;
+  justify-content: center;
+  /* opacity: .8; */
+  background-size: 600% 600%;
+  background-image: linear-gradient(-45deg, rgba(136, 0, 28, 1) 0%, rgba(10, 0, 31, 1) 25%, rgba(34, 0, 43, 1) 51%, rgba(92, 0, 52, 1) 100%);
+  animation: animateBG 40s ease infinite;
+}
+
+@keyframes animateBG {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+  /*https://alvarotrigo.com/blog/animated-backgrounds-css/*/
+  /*https://color.adobe.com/create/image-gradient*/
+}
+
+.header {
+  color: #fff;
+  text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #f09,
+    0 0 82px #f09,
+    0 0 92px #f09,
+    0 0 102px #f09,
+    0 0 151px #f09;
+  font-family: 'Yellowtail', sans-serif;
+  font-size: 50px;
+  font-weight: 500;
+  line-height: 1.07;
+  letter-spacing: 2px;
+  text-align: center;
+  /* margin-top: 60px; */
+}
+
+h1 {
+  animation: pulsate 0.2s ease-in-out infinite alternate;
+}
+
+@keyframes pulsate {
+  100% {
+    text-shadow:
+      0 0 4px #fff,
+      0 0 11px #fff,
+      0 0 19px #fff,
+      0 0 40px #f09,
+      0 0 80px #f09,
+      0 0 90px #f09,
+      0 0 100px #f09,
+      0 0 150px #f09;
+  }
+  0% {
+    text-shadow:
+      0 0 4px #fff,
+      0 0 10px #fff,
+      0 0 18px #fff,
+      0 0 38px #f09,
+      0 0 73px #f09,
+      0 0 80px #f09,
+      0 0 94px #f09,
+      0 0 140px #f09;
+  }
+}
+/* https://css-tricks.com/how-to-create-neon-text-with-css/ */
+
+.intro {
+  color: white;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  font-weight: 400;
+  font-size: 30px;
+  padding-bottom: 2px;
+}
+
+#content {
+  width: 60%;
+  margin: auto;
+  margin-top: 40px;
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+}
+
+form {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 50px;
+  padding-bottom: 50px;
+}
+
+form .box {
+  width: 95%;
+  height: 2.8em;
+  position: relative;
+  bottom: 10px;
+  border: 0;
+  border-radius: 5px;
+}
+
+.next-btn {
+  margin: 0;
+  padding-top: 10%;
+}
+
+.next-btn a {
+  color: grey;
+  text-decoration: none;
+}
+
+.next-btn button {
+  width: 100%;
+  height: 2.8em;
+  border: none;
+  border-radius: 5px;
+  position: relative;
+  margin-top: 200px;
+  right: 100%;
+}
+
+.next-btn button:hover{
+  border-bottom: 3px solid grey;
+}
+
+hr.line {
+  border-top: 3px dotted #bbb;
+  border-bottom: none;
+  margin-top: 60px;
+  margin-left: 40%;
+  margin-right: 40%;
+}
+
+.explanation {
+  margin-top: -10px;
+  font-family: 'Inter', sans-serif;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 90px;
+  font-weight: 500;
+  letter-spacing: -2px;
+  text-align: left;
+  padding-top: 1.3cm;
+  padding-left: 200px;
+  padding-right: 300px;
+  padding-bottom: 100px;
+  line-height: 1.1;
+  z-index: -1;
+}
+
+span.text1 {
+  color: #fff;
+  background: none;
+}
+
+.recordsImg {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  height: auto;
+}
