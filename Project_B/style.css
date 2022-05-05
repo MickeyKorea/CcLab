@@ -212,6 +212,25 @@ span.text1 {
   background: none;
 }
 
+.control-loc{
+  width: 100%;
+  position: absolute;
+  top: 30%;
+}
+
+.control{
+  float: right;
+  margin-right: 6%;
+  margin-top: 120px;
+  display: flex;
+  align-items: center;
+}
+
+#icon{
+  width: 80px;
+  cursor: pointer;
+}
+
 .recordsImg {
   display: flex;
   justify-content: center;
