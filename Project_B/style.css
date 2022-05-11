@@ -85,6 +85,7 @@ canvas {
   line-height: 1.07;
   letter-spacing: 2px;
   text-align: center;
+  user-select: none;
   /* margin-top: 60px; */
 }
 
@@ -122,15 +123,17 @@ h1 {
   color: white;
   font-family: 'Inter', sans-serif;
   text-align: center;
+  user-select: none;
   font-weight: 400;
   font-size: 30px;
+  margin-top: 25px;
   padding-bottom: 2px;
 }
 
 #content {
   width: 60%;
   margin: auto;
-  margin-top: 40px;
+  margin-top: 60px;
   font-size: 20px;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
@@ -159,9 +162,49 @@ form .box {
   border-radius: 5px;
 }
 
+/* .auth-btn {
+  width: 95%;
+  height: 2.8em;
+  border: none;
+  border-radius: 5px;
+  position: relative;
+  margin-top: -10px;
+}
+
+.auth-btn:hover{
+  border-bottom: 3px solid grey;
+} */
+
+/* From uiverse.io by @adamgiebl */
+.auth-btn {
+  position: sticky;
+  padding: 10px 40px;
+  margin-top: -10px;
+  margin-left: 130px;
+  /* margin: 0px 10px 10px 0px; */
+  float: left;
+  border-radius: 3px;
+  font-size: 20px;
+  color: #FFF;
+  text-decoration: none;
+  background-color: #2ecc71;
+  border: none;
+  border-bottom: 5px solid #27ae60;
+  text-shadow: 0px -2px #27ae60;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+ }
+ 
+ .auth-btn:hover, .auth-btn:active {
+  -webkit-transform: translate(0px,5px);
+  -ms-transform: translate(0px,5px);
+  transform: translate(0px,5px);
+  border-bottom: 1px solid #2ecc71;
+ }
+
 .next-btn {
   margin: 0;
-  padding-top: 10%;
+  /* padding-top: 10%; */
 }
 
 .next-btn a {
@@ -175,12 +218,43 @@ form .box {
   border: none;
   border-radius: 5px;
   position: relative;
-  margin-top: 200px;
+  margin-top: 165px;
   right: 100%;
 }
 
 .next-btn button:hover{
   border-bottom: 3px solid grey;
+}
+
+.playlist{
+  display: flex;
+	align-items: center;
+	justify-content: center;
+  width: 50%;
+	padding: 0 50px;
+}
+
+.loading {
+	display: none;
+}
+
+.loading.show {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	border: 5px solid rgba(255,255,255,0.7);
+	animation: load ease 3s infinite;
+	padding: 0px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.circle {
+	width: 50%;
+	padding-bottom: 50%;
+	border-radius: 50%;
+	background: rgba(255,255,255,0.6);
 }
 
 hr.line {
@@ -220,8 +294,8 @@ span.text1 {
 
 .control{
   float: right;
-  margin-right: 6%;
-  margin-top: 120px;
+  margin-right: 20%;
+  margin-top: -20px;
   display: flex;
   align-items: center;
 }
@@ -243,4 +317,8 @@ span.text1 {
   justify-content: center;
   width: 50%;
   height: auto;
+}
+
+#sketch{
+  display: block;
 }
