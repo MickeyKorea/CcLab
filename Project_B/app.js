@@ -169,8 +169,8 @@ app.createPlaylist = function(tracks) {
             for(let i=0; i<30; i++) {
                 randomTracks.push(getRandomTrack(tracksResults));
             }
-            const baseUrl = `https://embed.spotify.com/?theme=white&uri=spotify:trackset:My Playlist:${randomTracks.join()}`;
-
+            // const baseUrl = `https://embed.spotify.com/?theme=white&uri=spotify:trackset:My Playlist:${randomTracks.join()}`;
+            const baseUrl = `https://open.spotify.com/embed/track${randomTracks.join()}`;
             console.log(baseUrl);
             
             // $('.loading').toggleClass('show');
