@@ -2,8 +2,8 @@
 1.https://github.com/makeratplay/SpotifyWebAPI
 2.https://youtu.be/1vR3m0HupGI
 */
-let redirect_uri = "https://mickeykorea.github.io/CcLab22/Project_B/";
-// let redirect_uri = "http://127.0.0.1:5500/Project_B/index.html";
+// let redirect_uri = "https://mickeykorea.github.io/CcLab22/Project_B/";
+let redirect_uri = "http://127.0.0.1:5500/Project_B/index.html";
 
 let client_id = "";
 let client_secret = "";
@@ -166,11 +166,11 @@ app.createPlaylist = function(tracks) {
                 .reduce(flatten,[])
                 .map(item => item.id)
             const randomTracks = [];
-            for(let i=0; i<30; i++) {
+            for(let i=0; i<1; i++) {
                 randomTracks.push(getRandomTrack(tracksResults));
             }
             // const baseUrl = `https://embed.spotify.com/?theme=white&uri=spotify:trackset:My Playlist:${randomTracks.join()}`;
-            const baseUrl = `https://open.spotify.com/embed/track${randomTracks.join()}`;
+            const baseUrl = `https://open.spotify.com/embed/track/${randomTracks.join()}`;
             console.log(baseUrl);
             
             // $('.loading').toggleClass('show');
