@@ -1,5 +1,9 @@
-// let redirect_uri = ''
-let redirect_uri = "http://127.0.0.1:5500/Project_B/index.html";
+/*references:
+1.https://github.com/makeratplay/SpotifyWebAPI
+2.https://youtu.be/1vR3m0HupGI
+*/
+let redirect_uri = "https://mickeykorea.github.io/CcLab22/Project_B/";
+// let redirect_uri = "http://127.0.0.1:5500/Project_B/index.html";
 
 let client_id = "";
 let client_secret = "";
@@ -92,6 +96,10 @@ function requestAuthorization(){
 }
 
 //from here call and use api with the OAuth Token!
+/*references:
+1.https://github.com/lets-learn/spotify-playlist-generator
+2.https://www.youtube.com/watch?v=eV3WkDAM3Hw&ab_channel=RyanChristiani
+*/
 const app={};
 
 app.apiUrl = "https://api.spotify.com/v1";
@@ -100,7 +108,7 @@ app.apiUrl = "https://api.spotify.com/v1";
 app.events = function() {
   $("form").on("submit",function(e) {
     e.preventDefault();
-    $('.loading').toggleClass('show');
+    // $('.loading').toggleClass('show');
     let artists = $("input[type=artist]").val();
     // console.log(artists);
     artists = artists.split(',');
@@ -161,21 +169,24 @@ app.createPlaylist = function(tracks) {
             for(let i=0; i<30; i++) {
                 randomTracks.push(getRandomTrack(tracksResults));
             }
-            const baseUrl = `https://open.spotify.com/?theme=white&uri=spotify:trackset:MickeyPlaylist:${randomTracks.join()}`;
+            const baseUrl = `https://embed.spotify.com/?theme=white&uri=spotify:trackset:My Playlist:${randomTracks.join()}`;
+
+            console.log(baseUrl);
             
-            $('.loading').toggleClass('show');
-            // $('.playlist').html(`<iframe src="${baseUrl}" height="400"></iframe>`);
+            // $('.loading').toggleClass('show');
+            $('.playlist').html(`<iframe src="${baseUrl}" height="400"></iframe>`);
+            // select("#embed-iframe").html(`<iframe src=""`)
         });
 };
 
-window.onSpotifyIframeApiReady = (IFrameAPI) => {
-    let element = document.getElementById('embed-iframe');
-    let options = {
-      uri: 'spotify:episode:7makk4oTQel546B0PZlDM5'
-    };
-    let callback = (EmbedController) => {};
-    IFrameAPI.createController(element, options, callback);
-};
+// window.onSpotifyIframeApiReady = (IFrameAPI) => {
+//     let element = document.getElementById('embed-iframe');
+//     let options = {
+//       uri: 'https://open.spotify.com/embed/playlist/5Zz7kZuoo66CGb88hHI7lN?utm_source=generator"'
+//     };
+//     let callback = (EmbedController) => {};
+//     IFrameAPI.createController(element, options, callback);
+// };
 
 app.retreiveArtistInfo = function(search) {
     $.when(...search)
