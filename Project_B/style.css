@@ -126,8 +126,8 @@ h1 {
   user-select: none;
   font-weight: 400;
   font-size: 30px;
-  margin-top: 25px;
-  padding-bottom: 2px;
+  margin-top: 50px;
+  padding-bottom: 0.05px;
 }
 
 #content {
@@ -149,7 +149,7 @@ form {
   width: 50%;
   border-radius: 5px;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 33px;
   padding-bottom: 50px;
   z-index: -1;
 }
@@ -178,7 +178,7 @@ form .box {
 
 /* From uiverse.io by @adamgiebl */
 .auth-btn {
-  position: sticky;
+  position: relative;
   padding: 10px 40px;
   margin-top: -10px;
   margin-left: 130px;
@@ -214,13 +214,13 @@ form .box {
 }
 
 .next-btn button {
-  width: 100%;
+  width: 130%;
   height: 2.8em;
   border: none;
   border-radius: 5px;
   position: relative;
   margin-top: 165px;
-  right: 100%;
+  right: 150%;
 }
 
 .next-btn button:hover{
@@ -234,7 +234,7 @@ form .box {
   width: 50%;
   margin-top: 100px;
   margin-bottom: 100px;
-	padding: 0 50px;
+	padding: 0 100px;
 }
 
 .loading {
@@ -245,7 +245,7 @@ form .box {
 	width: 100px;
 	height: 100px;
 	border-radius: 50%;
-	border: 5px solid rgba(255,255,255,0.7);
+	border: 5px solid rgba(255,255,255,0.5);
 	animation: load ease 3s infinite;
 	padding: 0px;
 	display: flex;
@@ -260,6 +260,14 @@ form .box {
 	background: rgba(255,255,255,0.6);
 }
 
+#projectSketch {
+  position: relative;
+  margin-top: 0px;
+  left: calc(50% - 150px);
+  top: calc(50% - 150px);
+  z-index: -1;
+}
+
 hr.line {
   border-top: 3px dotted #bbb;
   border-bottom: none;
@@ -271,7 +279,7 @@ hr.line {
 .explanation {
   margin-top: -10px;
   font-family: 'Inter', sans-serif;
-  color: rgba(255, 255, 255, 0.56);
+  color: rgba(255, 255, 255, 0.3);
   font-size: 90px;
   font-weight: 500;
   letter-spacing: -2px;
@@ -279,14 +287,43 @@ hr.line {
   padding-top: 1.3cm;
   padding-left: 200px;
   padding-right: 300px;
-  padding-bottom: 100px;
+  /* padding-bottom: 100px; */
   line-height: 1.1;
   z-index: -1;
+  margin-bottom: -30px;
+}
+
+.explanation:hover {
+  color: rgba(255,255,255,0.6);
 }
 
 span.text1 {
   color: #fff;
   background: none;
+}
+
+.line2{
+  font-family: 'Inter',sans-serif;
+  color: #fff;
+  font-size: 40px;
+  font-weight: 100;
+  padding-left: 200px;
+  position: sticky;
+}
+
+.description{
+  font-family: 'Inter',sans-serif;
+  color: #fff;
+  font-size: 40px;
+  font-weight: 500;
+  padding-left: 200px;
+  padding-right: 400px;
+  padding-bottom: 20px;
+  opacity: 0.7;
+}
+
+.description:hover{
+  opacity: 1;
 }
 
 .control-loc{
@@ -325,3 +362,26 @@ span.text1 {
 #sketch{
   display: block;
 }
+
+.footer {
+  background-color: rgba(0, 0, 0, 0.4);
+  margin-top: 70px;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding-bottom: -100px; */
+}
+
+.spotify{
+  height: 80px;
+  width: auto;
+  object-fit: cover;
+}
+
+/* .applemusic{
+  padding-left: 20%;
+  height: 100px;
+  width: auto;
+} */

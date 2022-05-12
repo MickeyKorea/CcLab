@@ -1,59 +1,50 @@
 let canvas;
 
-// //user input
-// let artist1;
-// let artist2;
-// let artist3;
-
-// let testSong = document.getElementById("testSong");
-// let icon = document.gestElementById("icon");
-let albumCanvasImage;
+// let albumCanvasImage;
 let playIcon;
 let pauseIcon;
 let button;
-let fft;
 // let icon = [playIcon,pauseIcon];
+
+let mic;
+let fft;
 
 let c1,c2;
 
+let particle  = [];
+
 function preload(){
    testSong = loadSound('assets/song.mp3');
-   albumCanvasImage = loadImage('assets/records.png');
+  //  albumCanvasImage = loadImage('assets/records.png');
    playIcon =  loadImage('assets/play.png');
    pauseIcon = loadImage('assets/pause.png');
 }
 
-function windowResized(){
-  resizeCanvas(windowWidth, windowHeight);
-}
+// function windowResized(){
+//   resizeCanvas(windowWidth, windowHeight);
+// }
 
 function setup() {
   //canvas settings
-  canvas = createCanvas(windowWidth, windowHeight);
-  canvas.position(0,0);
-  canvas.style('z-index','-1');
-
-  // let submitButton = select("#submitButton");
-  // // submitButton.mousePressed(getArtistName);
-  // artist1 = select('#artist1');
-  // artist2 = select('#artist2');
-  // artist3 = select('#artist3');
+  let canvas = createCanvas(500, 500);
+  canvas.parent("projectSketch");
+  // canvas.position(0,0);
+  // canvas.style('z-index','-1');
+  angleMode(DEGREES);
 
   c1 = color(63,0,54);
   c2 = color(11,0,32);
+  
+  //set up audio detect and fft
+  // mic = new p5.AudioIn();
+  // fft = new p5.FFT();
   fft = new p5.FFT(0.5,256);
+  // fft.setInput(mic);
 
   button = createImg('assets/play.png','');
-  button.position(windowWidth-400,250);
+  button.position(222,225);
   button.mousePressed(togglePlaying);
 }
-
-// function getArtistName(){
-//   artist1 = artist1.value();
-//   artist2 = artist2.value();
-//   artist3 = artist3.value();
-//   console.log(artist1.value());
-// }
 
 function draw() {
   //gradient background
@@ -65,24 +56,44 @@ function draw() {
   }
   
   //audio visualizer
-  let waveform = fft.waveform();
-  stroke(255,150);
-  strokeWeight(3);
+  stroke(255);
+  strokeWeight(2);
   noFill();
 
-  beginShape();
-  for(let i=0; i<width; i++){
-    let index = floor(map(i,0,width,0,waveform.length));
+  let wave = fft.waveform();
 
-    let x = i;
-    let y = waveform[index]*100 + height/2
-    vertex(x,y+300);
+  // push();
+  translate(width/2,height/2);
+  for(let t=-1; t<=1; t+=2){
+    beginShape();
+    for(let i=0; i<180; i+=0.5){
+      let index = floor(map(i,0,180,0,wave.length-1));
+  
+      let r = map(wave[index],-1,1,50,250);
+  
+      let x = r * sin(i) *t;
+      let y = r * cos(i);
+      vertex(x,y);
+    }
+    endShape();
   }
-  endShape();
+  // pop();
 
-  image(albumCanvasImage,windowWidth/14,windowHeight/5);
-  playIcon.resize(80,80);
-  pauseIcon.resize(80,80);
+  let p = new circles();
+  particle.push(p);
+
+  for(let i=particle.length-1; i>=0; i--){
+    if (!particle[i].edge()){
+      particle[i].update();
+      particle[i].display();
+    } else{
+      particle.splice(i,1);
+    }
+  }
+
+  // image(albumCanvasImage,windowWidth/14,windowHeight/5);
+  // playIcon.resize(80,80);
+  // pauseIcon.resize(80,80);
   // image(playIcon,windowWidth-400,250);
   // playIcon.mousePressed(songPlay);
 }
@@ -91,6 +102,7 @@ function draw() {
 function togglePlaying() {
   if (!testSong.isPlaying()) {
       testSong.play();
+      // testSong.setVsolume(0);
       // icon.src = "assets/pause.png";
   } else {
       testSong.pause();
@@ -98,10 +110,31 @@ function togglePlaying() {
   }
 }
 
-// function mouseClicked() {
-//   if(testSong.isPlaying()){
-//     testSong.pause();
-//   }else{
-//     testSong.play();
-//   }
-// }
+class circles {
+  constructor(){
+    this.position = p5.Vector.random2D().mult(150);
+    this.velocity = createVector(0,0);
+    this.accelerate = this.position.copy().mult(random(0.0001,0.00001));
+    this.width = random(3,5);
+    this.color = [random(255),random(255),random(255)];
+  }
+
+  update(){
+    this.velocity.add(this.accelerate);
+    this.position.add(this.velocity);
+  }
+
+  edge(){
+    if (this.position < width/2 || this.position.x >  width/2 || this.position.y < -height /2 || this.position.y > height/2){
+      return true;
+    } else{
+      return false;
+    }
+  }
+
+  display(){
+    noStroke();
+    fill(this.color);
+    ellipse(this.position.x,this.position.y,this.width);
+  }
+}

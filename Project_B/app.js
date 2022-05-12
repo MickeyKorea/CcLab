@@ -2,8 +2,8 @@
 1.https://github.com/makeratplay/SpotifyWebAPI
 2.https://youtu.be/1vR3m0HupGI
 */
-// let redirect_uri = "https://mickeykorea.github.io/CcLab22/Project_B/";
-let redirect_uri = "http://127.0.0.1:5500/Project_B/index.html";
+let redirect_uri = "https://mickeykorea.github.io/CcLab22/Project_B/";
+// let redirect_uri = "http://127.0.0.1:5500/Project_B/index.html";
 
 let client_id = "";
 let client_secret = "";
@@ -108,7 +108,7 @@ app.apiUrl = "https://api.spotify.com/v1";
 app.events = function() {
   $("form").on("submit",function(e) {
     e.preventDefault();
-    // $('.loading').toggleClass('show');
+    $('.loading').toggleClass('show');
     let artists = $("input[type=artist]").val();
     // console.log(artists);
     artists = artists.split(',');
@@ -152,12 +152,28 @@ app.getArtistTracks = (id) => $.ajax({
     url: `${app.apiUrl}/albums/${id}/tracks`,
     method: 'GET',
     dataType: 'json',
-    headers: {
+    headers:{
         'Authorization' : 'Bearer ' + access_token
     }
 });
 
-//finally, create playlist
+// let playlistId = '4zpWU17dOfDepAEnzAztFc';
+// const randomTracks = [];
+
+// app.addTracktoPlaylist = (playlistId) => $.ajax({
+//     url: `${app.apiUrl}/playlists/${playlistId}/tracks`,
+//     method: 'POST',
+//     dataType: 'json',
+//     data:{
+//         'uris':[`${randomTracks.join()}`],
+//         position: 0,
+//     },
+//     headers:{
+//         'Authorization' : 'Bearer ' + access_token
+//     }
+// });
+
+//play random one track of the album
 app.createPlaylist = function(tracks) {
     $.when(...tracks)
         .then((...tracksResults) => {
@@ -169,12 +185,16 @@ app.createPlaylist = function(tracks) {
             for(let i=0; i<1; i++) {
                 randomTracks.push(getRandomTrack(tracksResults));
             }
+
+            // app.addTracktoPlaylist(playlistId);
+
             // const baseUrl = `https://embed.spotify.com/?theme=white&uri=spotify:trackset:My Playlist:${randomTracks.join()}`;
+            // const baseUrl = `https://open.spotify.com/embed/playlist/4zpWU17dOfDepAEnzAztFc?utm_source=generator`;
             const baseUrl = `https://open.spotify.com/embed/track/${randomTracks.join()}`;
             console.log(baseUrl);
             
-            // $('.loading').toggleClass('show');
-            $('.playlist').html(`<iframe src="${baseUrl}" height="400"></iframe>`);
+            $('.loading').toggleClass('show');
+            $('.playlist').html(`<iframe style="border-radius:10px" src="${baseUrl}" height="380" frameBorder="0"></iframe>`);
             // select("#embed-iframe").html(`<iframe src=""`)
         });
 };
@@ -218,6 +238,7 @@ const flatten = (prev,curr) => [...prev,...curr];
 const getRandomTrack = (trackArray) => {
     const randomNum = Math.floor(Math.random()*trackArray.length);
     return trackArray[randomNum];
+    // console.log(trackArray);
 }
 
 app.init = function() {
