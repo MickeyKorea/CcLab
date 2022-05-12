@@ -36,14 +36,15 @@ function setup() {
   c2 = color(11,0,32);
   
   //set up audio detect and fft
-  // mic = new p5.AudioIn();
+  mic = new p5.AudioIn();
+  mic.start();
   // fft = new p5.FFT();
   fft = new p5.FFT(0.5,256);
-  // fft.setInput(mic);
+  fft.setInput(mic);
 
-  button = createImg('assets/play.png','');
-  button.position(windowWidth/2+250,windowHeight/2+570);
-  button.mousePressed(togglePlaying);
+  // button = createImg('assets/play.png','');
+  // button.position(windowWidth/2+250,windowHeight/2+570);
+  // button.mousePressed(togglePlaying);
 }
 
 function draw() {
