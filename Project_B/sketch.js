@@ -42,7 +42,7 @@ function setup() {
   // fft.setInput(mic);
 
   button = createImg('assets/play.png','');
-  button.position(222,225);
+  button.position(windowWidth/2+250,windowHeight/2+570);
   button.mousePressed(togglePlaying);
 }
 
@@ -102,7 +102,7 @@ function draw() {
 function togglePlaying() {
   if (!testSong.isPlaying()) {
       testSong.play();
-      // testSong.setVsolume(0);
+      testSong.setVolume(0.7);
       // icon.src = "assets/pause.png";
   } else {
       testSong.pause();

@@ -1,3 +1,7 @@
+html {
+  background-image: linear-gradient(rgb(63,0,54),rgb(11,0,32));
+}
+
 html,
 body {
   margin: 0;
@@ -42,13 +46,14 @@ canvas {
   text-decoration: none;
 }
 
+/*turned off dynamic background to avoid freeze*/
+/* 
 .background-image {
   width: 100%;
   margin-top: px;
   margin-bottom: 0;
   align-items: center;
   justify-content: center;
-  /* opacity: .8; */
   background-size: 600% 600%;
   background-image: linear-gradient(-45deg, rgba(136, 0, 28, 1) 0%, rgba(10, 0, 31, 1) 25%, rgba(34, 0, 43, 1) 51%, rgba(92, 0, 52, 1) 100%);
   animation: animateBG 40s ease infinite;
@@ -64,9 +69,7 @@ canvas {
   100% {
     background-position: 0% 50%
   }
-  /*https://alvarotrigo.com/blog/animated-backgrounds-css/*/
-  /*https://color.adobe.com/create/image-gradient*/
-}
+} */
 
 .header {
   color: #fff;
@@ -92,8 +95,8 @@ canvas {
 h1 {
   animation: pulsate 0.2s ease-in-out infinite alternate;
 }
-
-@keyframes pulsate {
+/*turned off animation to avoid freeze*/
+/* @keyframes pulsate {
   100% {
     text-shadow:
       0 0 4px #fff,
@@ -116,7 +119,7 @@ h1 {
       0 0 94px #f09,
       0 0 140px #f09;
   }
-}
+} */
 /* https://css-tricks.com/how-to-create-neon-text-with-css/ */
 
 .intro {
@@ -227,6 +230,11 @@ form .box {
   border-bottom: 3px solid grey;
 }
 
+/* .middle-content{
+  /* display: flex;  */
+  /* justify-content: space-between;
+} */
+
 .playlist{
   display: flex;
 	align-items: center;
@@ -262,8 +270,9 @@ form .box {
 
 #projectSketch {
   position: relative;
-  margin-top: 0px;
-  left: calc(50% - 150px);
+  margin-top: -80px;
+  margin-bottom: 110px;
+  left: calc(50% + 50px);
   top: calc(50% - 150px);
   z-index: -1;
 }
