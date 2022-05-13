@@ -121,7 +121,7 @@ class circles {
     this.position = p5.Vector.random2D().mult(150);
     this.velocity = createVector(0,0);
     this.accelerate = this.position.copy().mult(random(0.0001,0.00001));
-    this.width = random(3,5);
+    this.width = random(3,10);
     this.color = [random(255),random(255),random(255)];
   }
 
@@ -129,6 +129,7 @@ class circles {
     this.velocity.add(this.accelerate);
     this.position.add(this.velocity);
     if(amplevel){
+      this.position.add(this.velocity);
       this.position.add(this.velocity);
       this.position.add(this.velocity); //respond to the low sound
     }
