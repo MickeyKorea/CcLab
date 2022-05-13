@@ -68,7 +68,7 @@ function draw() {
   fft.analyze();
   let amp = fft.getEnergy(20,200); //controls the small circles movement with sound frequency
 
-  push();
+  // push();
   translate(width/2,height/2);
   for(let t=-1; t<=1; t+=2){
     beginShape();
@@ -96,6 +96,7 @@ function draw() {
       particle.splice(i,1);
     }
   }
+  // pop();
 
   // image(albumCanvasImage,windowWidth/14,windowHeight/5);
   // playIcon.resize(80,80);
@@ -149,4 +150,3 @@ class circles {
     ellipse(this.position.x,this.position.y,this.width);
   }
 }
-pop();
