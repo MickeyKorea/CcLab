@@ -33,7 +33,7 @@ let deathNum = 0;
 let speed = 1;
 
 function preload(){
-  backgroundImg = loadImage('assets/background.png');
+  backgroundImg = loadImage('assets/web-background.png');
   cursorImg = loadImage('assets/target.png');
   killSound = loadSound('assets/killsound.mp3');
   levelupSound = loadSound('assets/levelupsound.mp3');
@@ -43,7 +43,7 @@ function preload(){
 }
 
 function setup() {
-  let canvas = createCanvas(600,600);
+  let canvas = createCanvas(windowWidth,600);
   canvas.parent("projectSketch");
   
   console.log('Interact with Mouse Click');
@@ -123,7 +123,7 @@ function draw() {
   fill(255);
   textFont('monospace');
   textSize(25);
-  text('Kill:' + deathNum + '  Alive:' + virus.length, 15,40);
+  text('Kill:' + deathNum + '  Alive:' + virus.length,15,40);
   //text('Mutant Level:' + speed, 385,40);
   textSize(15);
   text('Every 10 Viruses Killed, New Mutants Appear',16,65);
@@ -136,9 +136,9 @@ function draw() {
     strokeWeight(5);
     textFont(myFont);
     textSize(40);
-    text(newText,90,height/2);
+    text(newText,width/2.7,height/2);
     textSize(20);
-    text('Mutant Level: '+ speed,145,height/2+60);
+    text('Mutant Level: '+ speed,width/2.4,height/2+60);
     pop();
   }
   
@@ -149,9 +149,9 @@ function draw() {
     strokeWeight(5);
     textFont(myFont);
     textSize(40);
-    text(newText,80,height/2);
+    text(newText,width/2.7,height/2);
     textSize(20);
-    text('Mutant Level: MAX',130,height/2+60);
+    text('Mutant Level: MAX',width/2.4,height/2+60);
     pop();
   }
   
@@ -162,9 +162,9 @@ function draw() {
     strokeWeight(5);
     textFont(myFont);
     textSize(40);
-    text(newText,70,height/2);
+    text(newText,width/2.7,height/2);
     textSize(20);
-    text('Mutant Level: '+ speed,145,height/2+60);
+    text('Mutant Level: '+ speed,width/2.4,height/2+60);
     textCounter++
     pop();
   }

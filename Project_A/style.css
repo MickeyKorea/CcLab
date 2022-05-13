@@ -80,10 +80,10 @@ canvas {
 }
 
 #projectSketch {
-  position: relative;
+  /* position: relative; */
   margin-top: 50px;
-  left: calc(50% - 300px);
-  top: calc(50% - 300px);
+  /* left: calc(50% - 300px); */
+  /* top: calc(50% - 300px); */
   z-index: -1;
   /* https://editor.p5js.org/MOQN/sketches/l5OUgtzD_ */
 }

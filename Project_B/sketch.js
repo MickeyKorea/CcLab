@@ -49,7 +49,7 @@ function setup() {
   fft.setInput(currentInput);
 
   button = createImg('assets/play.png','');
-  button.position(windowWidth/2-50,windowHeight/2+685);
+  button.position(width/2-50,height/2+890);
   button.mousePressed(togglePlaying);
 }
 
@@ -106,7 +106,7 @@ function draw() {
 function togglePlaying() {
   if (!testSong.isPlaying()|| currentInput === mic) {
     testSong.play();
-    // testSong.setVolume(0.1);
+    testSong.setVolume(0.8);
     currentInput = testSong;
     mic.stop();
       // icon.src = "assets/pause.png";
