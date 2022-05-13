@@ -1,4 +1,5 @@
-/*references:
+//First get OAuth Token
+/*References:
 1.https://github.com/makeratplay/SpotifyWebAPI
 2.https://youtu.be/1vR3m0HupGI
 */
@@ -95,8 +96,8 @@ function requestAuthorization(){
     window.location.href = url; // Show Spotify's authorization screen
 }
 
-//from here call and use api with the OAuth Token!
-/*references:
+//from here, call data from Api with the OAuth Token!
+/*References:
 1.https://github.com/lets-learn/spotify-playlist-generator
 2.https://www.youtube.com/watch?v=eV3WkDAM3Hw&ab_channel=RyanChristiani
 */
@@ -194,7 +195,7 @@ app.createPlaylist = function(tracks) {
             console.log(baseUrl);
             
             $('.loading').toggleClass('show');
-            $('.playlist').html(`<iframe style="border-radius:10px" src="${baseUrl}" height="380" frameBorder="0"></iframe>`);
+            $('.playlist').html(`<iframe style="border-radius:10px" src="${baseUrl}" height="500" width="800" frameBorder="0"></iframe>`);
             // select("#embed-iframe").html(`<iframe src=""`)
         });
 };

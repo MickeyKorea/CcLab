@@ -239,7 +239,7 @@ form .box {
   display: flex;
 	align-items: center;
 	justify-content: center;
-  width: 50%;
+  /* width: 50%; */
   margin-top: 100px;
   margin-bottom: 100px;
 	padding: 0 100px;
@@ -269,11 +269,11 @@ form .box {
 }
 
 #projectSketch {
-  position: relative;
-  margin-top: -80px;
-  margin-bottom: 110px;
-  left: calc(50% + 50px);
-  top: calc(50% - 150px);
+  /* position: relative; */
+  margin-top: 80px;
+  margin-bottom: 100px;
+  /* left: calc(50% + 50px); */
+  /* top: calc(50% - 150px); */
   z-index: -1;
 }
 

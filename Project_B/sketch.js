@@ -1,3 +1,6 @@
+/*References:
+https://youtu.be/uk96O7N1Yo0
+*/
 let canvas;
 
 // let albumCanvasImage;
@@ -14,7 +17,7 @@ let c1,c2;
 let particle  = [];
 
 function preload(){
-   testSong = loadSound('assets/song.mp3');
+  //  testSong = loadSound('assets/song.mp3');
   //  albumCanvasImage = loadImage('assets/records.png');
    playIcon =  loadImage('assets/play.png');
    pauseIcon = loadImage('assets/pause.png');
@@ -26,20 +29,20 @@ function preload(){
 
 function setup() {
   //canvas settings
-  let canvas = createCanvas(500, 500);
+  let canvas = createCanvas(windowWidth, 500);
   canvas.parent("projectSketch");
   // canvas.position(0,0);
   // canvas.style('z-index','-1');
   angleMode(DEGREES);
 
-  c1 = color(63,0,54);
-  c2 = color(11,0,32);
+  c1 = color(47,0,47);
+  c2 = color(37,0,43);
   
   //set up audio detect and fft
   mic = new p5.AudioIn();
   mic.start();
   // fft = new p5.FFT();
-  fft = new p5.FFT(0.5,256);
+  fft = new p5.FFT(0.3,256);
   fft.setInput(mic);
 
   // button = createImg('assets/play.png','');
@@ -62,15 +65,17 @@ function draw() {
   noFill();
 
   let wave = fft.waveform();
+  fft.analyze();
+  let amp = fft.getEnergy(20,200); //controls the small circles movement with sound frequency
 
-  // push();
+  push();
   translate(width/2,height/2);
   for(let t=-1; t<=1; t+=2){
     beginShape();
     for(let i=0; i<180; i+=0.5){
       let index = floor(map(i,0,180,0,wave.length-1));
   
-      let r = map(wave[index],-1,1,50,250);
+      let r = map(wave[index],-1,1,50,250); //change radius of main circle
   
       let x = r * sin(i) *t;
       let y = r * cos(i);
@@ -78,14 +83,14 @@ function draw() {
     }
     endShape();
   }
-  // pop();
-
+  
+  //call class circle
   let p = new circles();
   particle.push(p);
 
   for(let i=particle.length-1; i>=0; i--){
     if (!particle[i].edge()){
-      particle[i].update();
+      particle[i].update(amp > 200);
       particle[i].display();
     } else{
       particle.splice(i,1);
@@ -100,16 +105,16 @@ function draw() {
 }
 
 
-function togglePlaying() {
-  if (!testSong.isPlaying()) {
-      testSong.play();
-      testSong.setVolume(0.7);
-      // icon.src = "assets/pause.png";
-  } else {
-      testSong.pause();
-      // icon.src = "assets/play.png"
-  }
-}
+// function togglePlaying() {
+//   if (!testSong.isPlaying()) {
+//       testSong.play();
+//       testSong.setVolume(0.7);
+//       // icon.src = "assets/pause.png";
+//   } else {
+//       testSong.pause();
+//       // icon.src = "assets/play.png"
+//   }
+// }
 
 class circles {
   constructor(){
@@ -120,9 +125,13 @@ class circles {
     this.color = [random(255),random(255),random(255)];
   }
 
-  update(){
+  update(amplevel){
     this.velocity.add(this.accelerate);
     this.position.add(this.velocity);
+    if(amplevel){
+      this.position.add(this.velocity);
+      this.position.add(this.velocity); //respond to the low sound
+    }
   }
 
   edge(){
@@ -139,3 +148,4 @@ class circles {
     ellipse(this.position.x,this.position.y,this.width);
   }
 }
+pop();
