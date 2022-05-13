@@ -11,21 +11,22 @@ let button;
 
 let mic;
 let fft;
+let currentInput="";
 
 let c1,c2;
 
 let particle  = [];
 
 function preload(){
-  //  testSong = loadSound('assets/song.mp3');
+   testSong = loadSound('assets/song.mp3');
   //  albumCanvasImage = loadImage('assets/records.png');
    playIcon =  loadImage('assets/play.png');
    pauseIcon = loadImage('assets/pause.png');
 }
 
-// function windowResized(){
-//   resizeCanvas(windowWidth, windowHeight);
-// }
+function windowResized(){
+  resizeCanvas(windowWidth, windowHeight);
+}
 
 function setup() {
   //canvas settings
@@ -34,20 +35,22 @@ function setup() {
   // canvas.position(0,0);
   // canvas.style('z-index','-1');
   angleMode(DEGREES);
+  imageMode(CENTER);
 
-  c1 = color(47,0,47);
-  c2 = color(37,0,43);
+  c1 = color(45,1,46);
+  c2 = color(35,0,42);
   
   //set up audio detect and fft
   mic = new p5.AudioIn();
   mic.start();
   // fft = new p5.FFT();
   fft = new p5.FFT(0.3,256);
-  fft.setInput(mic);
+  currentInput = mic;
+  fft.setInput(currentInput);
 
-  // button = createImg('assets/play.png','');
-  // button.position(windowWidth/2+250,windowHeight/2+570);
-  // button.mousePressed(togglePlaying);
+  button = createImg('assets/play.png','');
+  button.position(windowWidth/2-50,windowHeight/2+685);
+  button.mousePressed(togglePlaying);
 }
 
 function draw() {
@@ -90,32 +93,31 @@ function draw() {
 
   for(let i=particle.length-1; i>=0; i--){
     if (!particle[i].edge()){
-      particle[i].update(amp > 200);
+      particle[i].update(amp > 170);
       particle[i].display();
     } else{
       particle.splice(i,1);
     }
   }
   // pop();
-
-  // image(albumCanvasImage,windowWidth/14,windowHeight/5);
-  // playIcon.resize(80,80);
-  // pauseIcon.resize(80,80);
-  // image(playIcon,windowWidth-400,250);
-  // playIcon.mousePressed(songPlay);
 }
 
 
-// function togglePlaying() {
-//   if (!testSong.isPlaying()) {
-//       testSong.play();
-//       testSong.setVolume(0.7);
-//       // icon.src = "assets/pause.png";
-//   } else {
-//       testSong.pause();
-//       // icon.src = "assets/play.png"
-//   }
-// }
+function togglePlaying() {
+  if (!testSong.isPlaying()|| currentInput === mic) {
+    testSong.play();
+    // testSong.setVolume(0.1);
+    currentInput = testSong;
+    mic.stop();
+      // icon.src = "assets/pause.png";
+  } else {
+    testSong.pause();
+    mic.start();
+    currentInput = mic;
+      // icon.src = "assets/play.png"
+  }
+  fft.setInput(currentInput);
+}
 
 class circles {
   constructor(){

@@ -1,7 +1,7 @@
 //First get OAuth Token
 /*References:
-1.https://github.com/makeratplay/SpotifyWebAPI
-2.https://youtu.be/1vR3m0HupGI
+1.https://github.com/makeratplay/SpotifyWebAPI - Codes directly brought from here
+2.https://youtu.be/1vR3m0HupGI(04:00~14:35)
 */
 let redirect_uri = "https://mickeykorea.github.io/CcLab22/Project_B/";
 // let redirect_uri = "http://127.0.0.1:5500/Project_B/index.html";
@@ -82,8 +82,10 @@ function handleAuthorizationResponse(){
 
 //get OAuth Token
 function requestAuthorization(){
-    client_id = "1d343529bfcf491cb4dff59b57d73eaa";
-    client_secret = "5e0b0d3e507f4e75bde95e3e1ea1f7d8";
+    //1d343529bfcf491cb4dff59b57d73eaa
+    //5e0b0d3e507f4e75bde95e3e1ea1f7d8
+    client_id = "6bf72e3dd5a24b5691df7cbbb3d479da";
+    client_secret = "4470511a9b2648639b2baaa144c51203";
     localStorage.setItem("client_id", client_id);
     localStorage.setItem("client_secret", client_secret);
 
@@ -93,7 +95,7 @@ function requestAuthorization(){
     url += "&redirect_uri=" + encodeURI(redirect_uri);
     url += "&show_dialog=true";
     url += "&scope=user-read-private user-read-email user-modify-playback-state user-read-playback-position user-library-read streaming user-read-playback-state user-read-recently-played playlist-read-private";
-    window.location.href = url; // Show Spotify's authorization screen
+    window.location.href = url; // Show Spotify authorization page
 }
 
 //from here, call data from Api with the OAuth Token!

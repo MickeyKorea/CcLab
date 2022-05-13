@@ -126,11 +126,19 @@ h1 {
   color: white;
   font-family: 'Inter', sans-serif;
   text-align: center;
-  user-select: none;
+  /* user-select: none; */
   font-weight: 400;
   font-size: 30px;
   margin-top: 50px;
   padding-bottom: 0.05px;
+}
+
+p {
+  user-select: none;
+}
+
+p2 {
+  user-select: text;
 }
 
 #content {
@@ -145,7 +153,7 @@ h1 {
 form {
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
-  padding-top: 10px;
+  padding-top: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
