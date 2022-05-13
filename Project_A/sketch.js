@@ -138,7 +138,7 @@ function draw() {
     textSize(40);
     text(newText,width/2.7,height/2);
     textSize(20);
-    text('Mutant Level: '+ speed,width/2.4,height/2+60);
+    text('Mutant Level: '+ speed,width/2.6,height/2+60);
     pop();
   }
   
