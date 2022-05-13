@@ -49,7 +49,9 @@ function setup() {
   fft.setInput(currentInput);
 
   button = createImg('assets/play.png','');
-  button.position(width/2-50,height/2+890);
+  // button = document.createElement("button");
+  // document.getElementById("playbutton").appendChild(button);
+  button.position(width/2-50,height/2+890); 
   button.mousePressed(togglePlaying);
 }
 

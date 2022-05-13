@@ -285,6 +285,10 @@ form .box {
   z-index: -1;
 }
 
+/* #playbutton {
+
+} */
+
 hr.line {
   border-top: 3px dotted #bbb;
   border-bottom: none;
