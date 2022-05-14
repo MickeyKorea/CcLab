@@ -37,6 +37,11 @@ canvas {
   opacity: .7;
 }
 
+.back-main {
+  color: rgba(255, 255, 255, 0.796);
+  text-decoration: none;
+}
+
 .header {
   font-family: 'Inter', sans-serif;
   font-size: 80px;
