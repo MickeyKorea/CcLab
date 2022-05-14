@@ -1,5 +1,8 @@
 # CcLab22
- Repository for CC Lab.
+ Repository for Creative Coding Lab
+
+ [CC Lab Showcase](https://cclab-sp2022.glitch.me/index.html)
+ 2022 Spring Creative Coding Lab Final Works Exhibition
 
  ---
 
